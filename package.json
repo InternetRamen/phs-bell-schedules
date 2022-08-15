@@ -1,0 +1,22 @@
+{
+  "name": "phs-scheduler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "initalize": "node initalize.js",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/rest": "^1.0.1",
+    "cron": "^2.1.0",
+    "discord.js": "^14.2.0",
+    "dotenv": "^16.0.1",
+    "luxon": "^3.0.1",
+    "pdfjs-dist": "^2.15.349",
+    "xlsx": "^0.18.5"
+  }
+}
