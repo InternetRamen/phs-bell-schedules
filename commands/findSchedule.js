@@ -6,9 +6,6 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("findschedule")
         .setDescription("Finds the schedule for a specific date")
-        .setDefaultMemberPermissions(
-            PermissionFlagsBits.KickMembers | PermissionFlagsBits.BanMembers
-        )
         .addStringOption((option) =>
             option
                 .setName("date")

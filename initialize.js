@@ -8,8 +8,7 @@ const array = json.map(item => {
         day.includes("FT") ||
         day.includes("Adv.") ||
         day.includes("(HR schedule)") ||
-        day.includes("Early Release") || 
-        day.includes("No Adv.")
+        day.includes("Early Release")
             ? day
             : (day = "")
     );
@@ -26,7 +25,7 @@ const sheet_name_list2 = workbook2.SheetNames;
 const json2 = XLSX.utils.sheet_to_json(workbook2.Sheets[sheet_name_list2[0]])
 const array2 = json2.map(item => {
     let periods = Object.values(item)
-    periods = periods.filter(type => isNaN(type) && type !== "Homeroom")
+    periods = periods.filter(type => isNaN(type) && type !== "Homeroom" && type !== "Lunch")
     return periods
 })
 
