@@ -37,8 +37,7 @@ client.once("ready", () => {
         "0 6 * * 1-5",
         function () {
             const date = DateTime.now().setZone("America/New_York");
-            let dateFormatted = date.toFormat("MM/dd");
-            dateFormatted = dateFormatted.replace("0", "");
+            let dateFormatted = date.toFormat("M/d");
             let response = getSchedule(dateFormatted);
             client.channels.cache
                 .get("1008509546358112328")
