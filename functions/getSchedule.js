@@ -23,7 +23,7 @@ module.exports = (dateFormatted) => {
     let schedule;
     if (today.includes("FT")) {
         schedule = periodArray.map(
-            (val) => val[parseInt(today.charAt(today.indexOf("FT") + 2))]
+            (val) => val[parseInt(today.charAt(today.indexOf("FT") + 2))  - 1]
         );
     } else if (today.includes("Adv.")) {
         schedule = periodArray.map((val) => val[7]);
