@@ -29,8 +29,8 @@ for (const file of commandFiles) {
 const { DateTime } = require("luxon");
 
 const getSchedule = require("./functions/getSchedule");
+const getScreenshot = require("./functions/getScreenshot");
 client.once("ready", () => {
-    client.channels.cache.get("1008509546358112328").send("Restarted");
 
     console.log("Ready!");
     const job = new CronJob(
@@ -38,7 +38,7 @@ client.once("ready", () => {
         function () {
             const date = DateTime.now().setZone("America/New_York");
             let dateFormatted = date.toFormat("M/d");
-            let response = getSchedule(dateFormatted);
+            let response = getScreenshot(dateFormatted);
             client.channels.cache
                 .get("1008509546358112328")
                 .send(response)
