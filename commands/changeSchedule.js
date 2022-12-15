@@ -155,13 +155,13 @@ module.exports = {
             "utf8"
         );
 
-        source[ar] = interaction.options.getString("date") + ` - ${interaction.options.getString("name")}`;
+        source[ar] = interaction.options.getString("date") + ` - ` + interaction.options.getString("name");
         writeFileSync(
             path.resolve(__dirname, "../source/source.json"),
             JSON.stringify(source),
             "utf8"
         );
-
+        
         interaction.reply(getScreenshot(interaction.options.getString("date")));
     },
 };

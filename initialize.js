@@ -4,14 +4,6 @@ const sheet_name_list = workbook.SheetNames;
 const json = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]])
 const array = json.map(item => {
     let days = Object.values(item)
-    days = days.map((day) =>
-        day.includes("FT") ||
-        day.includes("Adv.") ||
-        day.includes("(HR schedule)") ||
-        day.includes("Early Release")
-            ? day
-            : (day = "")
-    );
     return days
 })
 const array1 = [].concat(...array)
