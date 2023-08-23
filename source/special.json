@@ -1,0 +1,167 @@
+[
+    {
+        "name": "First day of school for students",
+        "date": "2023-08-28T00:00:00.000+08:00",
+        "type": "normal"
+    },
+    {
+        "name": "Labor Day—Schools and offices closed.",
+        "date": "2023-09-04T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Early release day for students",
+        "date": "2023-09-22T00:00:00.000+08:00",
+        "type": "early"
+    },
+    {
+        "name": "Non-Instructional Day—No school for students and teachers",
+        "date": "2023-09-25T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Professional day for all staff; no school for students",
+        "date": "2023-10-09T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Grading and Planning for the end of term; no school for students",
+        "date": "2023-11-01T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Early release days for students",
+        "date": "2023-11-21T00:00:00.000+08:00",
+        "type": "early"
+    },
+    {
+        "name": "Systemwide Closure—Schools and offices closed",
+        "date": "2023-11-22T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Thanksgiving—Schools and offices closed",
+        "date": "2023-11-23T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Thanksgiving—Schools and offices closed",
+        "date": "2023-11-24T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Winter Break—No school for students and teachers",
+        "date": "2023-12-26T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Winter Break—No school for students and teachers",
+        "date": "2023-12-27T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Winter Break—No school for students and teachers",
+        "date": "2023-12-28T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Winter Break—No school for students and teachers",
+        "date": "2023-12-29T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "New Year's Day—Schools and offices closed",
+        "date": "2024-01-01T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Non-Instructional Day—No school for students and teachers",
+        "date": "2024-01-02T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Dr. Martin Luther King, Jr. Day—Schools and offices closed",
+        "date": "2024-01-15T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Grading and Planning for the end of term; no school for students",
+        "date": "2024-01-29T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Presidents' Day—Schools and offices closed",
+        "date": "2024-02-19T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Early release day for students",
+        "date": "2024-03-01T00:00:00.000+08:00",
+        "type": "early"
+    },
+    {
+        "name": "Spring Break—No school for students and teachers",
+        "date": "2024-03-25T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Spring Break—No school for students and teachers",
+        "date": "2024-03-26T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Spring Break—No school for students and teachers",
+        "date": "2024-03-27T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Spring Break—No school for students and teachers",
+        "date": "2024-03-28T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Holidays—Schools and offices closed",
+        "date": "2024-03-29T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Holidays—Schools and offices closed",
+        "date": "2024-04-01T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Grading and Planning for the end of term; no school for students",
+        "date": "2024-04-10T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Professional day for teachers; no school for students",
+        "date": "2024-04-22T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Primary Election Day—School and offices closed",
+        "date": "2024-05-14T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Memorial Day—Schools and offices closed",
+        "date": "2024-05-27T00:00:00.000+08:00",
+        "type": "closed"
+    },
+    {
+        "name": "Last day of school for students; early release day for students",
+        "date": "2024-06-13T00:00:00.000+08:00",
+        "type": "early"
+    },
+    {
+        "name": "Grading and Planning for the end of term",
+        "date": "2024-06-14T00:00:00.000+08:00",
+        "type": "normal"
+    },
+    {
+        "name": "Systemwide Closure—Schools and offices closed",
+        "date": "2024-06-19T00:00:00.000+08:00",
+        "type": "closed"
+    }
+]

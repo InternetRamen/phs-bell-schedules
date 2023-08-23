@@ -1,6 +1,5 @@
 const { SlashCommandBuilder, PermissionFlagsBits } = require("discord.js");
 const { DateTime } = require("luxon");
-const getSchedule = require("../functions/getSchedule");
 const getScreenshot = require("../functions/getScreenshot");
 module.exports = {
     data: new SlashCommandBuilder()
@@ -14,7 +13,7 @@ module.exports = {
         ),
     async execute(interaction) {
         const date = interaction.options.getString("date");
-        let response = getScreenshot(date);
+        let response = getScreenshot(DateTime.fromFormat(date, "M/d/yy"));
 
         interaction.reply(response);
     },

@@ -1,24 +1,88 @@
-const XLSX = require("xlsx");
-const workbook = XLSX.readFile("source/source.xlsx");
-const sheet_name_list = workbook.SheetNames;
-const json = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]])
-const array = json.map(item => {
-    let days = Object.values(item)
-    return days
-})
-const array1 = [].concat(...array)
-
 const fs = require("fs");
+const puppeteer = require("puppeteer");
+const { DateTime } = require("luxon");
 
-fs.writeFileSync("source/source.json", JSON.stringify(array1));
+const events = [];
+(async () => {
+    const browser = await puppeteer.launch({ headless: false });
+    const page = await browser.newPage();
+    await page.goto(
+        "https://www2.montgomeryschoolsmd.org/schools/poolesvillehs/calendar-index/",
+        { waitUntil: "networkidle2" }
+    );
 
-const workbook2 = XLSX.readFile("source/schedules.xlsx");
-const sheet_name_list2 = workbook2.SheetNames;
-const json2 = XLSX.utils.sheet_to_json(workbook2.Sheets[sheet_name_list2[0]])
-const array2 = json2.map(item => {
-    let periods = Object.values(item)
-    periods = periods.filter(type => isNaN(type) && type !== "Homeroom" && type !== "Lunch")
-    return periods
-})
+    await page.click(".fc-listMonth-button");
+    const schoolMonths = [
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+    ];
 
-fs.writeFileSync("source/schedules.json", JSON.stringify(array2));
+    let currentMonth = await page.$(".fc-center h2");
+    while (
+        (await page.evaluate((el) => el.textContent, currentMonth)) !==
+        "August 2023"
+    ) {
+        await page.click(".fc-prev-button");
+        currentMonth = await page.$(".fc-center h2");
+    }
+
+    for (const month of schoolMonths) {
+        await page.waitForSelector(".fc-list-table");
+        const trs = await page.$$(".fc-list-table tbody tr");
+        const monthEvents = [];
+        for (const i in trs) {
+            const tr = trs[i];
+            const dataset = await page.evaluate(
+                (el) => Object.assign({}, el.dataset),
+                tr
+            );
+            if (dataset.date) {
+                monthEvents.push({
+                    name: "",
+                    date: DateTime.fromISO(dataset.date),
+                    type: "",
+                });
+            } else if (dataset.id) {
+                let title = await page.evaluate(
+                    (el) => el.innerText,
+                    await tr.$("td a")
+                );
+                const titleSafe = title.toLowerCase();
+                const index = monthEvents.length - 1;
+                if (titleSafe.includes("early")) {
+                    monthEvents[index].type = "early";
+                } else if (
+                    titleSafe.includes("closed") ||
+                    titleSafe.includes("no school")
+                ) {
+                    monthEvents[index].type = "closed";
+                } else {
+                    monthEvents[index].type = "normal";
+                }
+                monthEvents[index].name = title;
+            }
+        }
+        console.log(monthEvents);
+        events.push(...monthEvents);
+        await page.click(".fc-next-button");
+        await delay(3000)
+        console.log("next");
+    }
+    await browser.close();
+    fs.writeFileSync("source/special.json", JSON.stringify(events));
+})();
+
+function delay(time) {
+    return new Promise(function (resolve) {
+        setTimeout(resolve, time);
+    });
+}
