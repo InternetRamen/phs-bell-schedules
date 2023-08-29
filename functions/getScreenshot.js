@@ -32,6 +32,29 @@ module.exports = (date) => {
             };
         }
     }
+    let changedArray = fs.readFileSync(
+        path.resolve(__dirname, "../source/changes.json"),
+        "utf8"
+    );
+    changedArray = JSON.parse(changedArray);
+    changedArray = changedArray.map((val) => ({
+        date: DateTime.fromISO(val.date),
+        url: val.url,
+    }));
+    let changedDay = changedArray.find((val) =>
+        date.hasSame(val.date, "day")
+    );
+    if (changedDay) {
+        return {
+            files: [
+                {
+                    attachment: changedDay.url,
+                    name: "Schedule.png",
+                    description: `Schedule for ${date.toFormat("MMMM d")}`,
+                }
+            ]
+        }
+    }
     console.log(date.weekday)
     if (date.weekday <= 5 && date.weekday !== 3) {
         return {
